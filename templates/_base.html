@@ -2,16 +2,21 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>{% block title %}Jwitter{% endblock %}</title>
   </head>
   <body>
-    <section>
-      <h1>Jwitter</h1>
-      <p>social network</p>
+    <section class="hero is-small is-primary mb-4">
+      <div class="hero-body">
+        <h1 class="title is-1">social network</h1>
+        <p class="subtitle is-4">Welcome to Jwitter</p>
+      </div>
     </section>
-    <div class="">
-      {% block content %}
-      {% endblock %}
+    <div class="container">
+      <div class="columns">
+        {% block content %}
+        {% endblock %}
+      </div>
     </div>
   </body>
 </html>
