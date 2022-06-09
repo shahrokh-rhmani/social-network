@@ -6,5 +6,5 @@ app_name= 'jwitter'
 
 urlpatterns = [
     path('', dashboard, name='dashboard'),
-    path('profile_list/', profile_list, 'profile_list'),
+    path('profile-list/', profile_list, name='profile_list'),
 ]
