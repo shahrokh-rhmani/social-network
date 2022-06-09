@@ -9,6 +9,6 @@ def profile_list(request):
     profiles = Profile.objects.exclude(user=request.user)
     context = {
         'profiles':profiles,
-        
+
     }
-    return render(reqeust, 'jwitter/profile_list.html', context)
+    return render(request, 'jwitter/profile_list.html', context)
