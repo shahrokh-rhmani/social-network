@@ -12,3 +12,11 @@ def profile_list(request):
 
     }
     return render(request, 'jwitter/profile_list.html', context)
+
+
+def profile(request, pk):
+    profile = Profile.objects.get(pk=pk)
+    context = {
+        'profile':profile,
+    }
+    return render(request, 'jwitter/profile.html', context)
