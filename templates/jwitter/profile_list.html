@@ -6,7 +6,7 @@
     {% for profile in profiles %}
       <div class="blck">
         <div class="card">
-          <a href="#">
+          <a href="{% url 'jwitter:profile' profile.id %}">
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
