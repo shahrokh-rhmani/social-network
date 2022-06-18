@@ -16,6 +16,15 @@ def profile_list(request):
 
 def profile(request, pk):
     profile = Profile.objects.get(pk=pk)
+    if request.method == 'POST':
+        present_user_profile = request.user.profile
+        data = request.POST
+        action = data.get("follow")
+        if action == "follow":
+            present_user_profile.follows.add(profile)
+        elif action == "unfollow":
+            present_user_profile.follows.remove(profile)
+        present_user_profile.save()
     context = {
         'profile':profile,
     }
