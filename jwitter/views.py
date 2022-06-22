@@ -15,6 +15,11 @@ def profile_list(request):
 
 
 def profile(request, pk):
+    # check user exists
+    if not hasattr(request.user, 'profile'):
+        missing_profile = Profile(user=request.user)
+        missing_profile.save()
+        
     profile = Profile.objects.get(pk=pk)
     if request.method == 'POST':
         present_user_profile = request.user.profile
