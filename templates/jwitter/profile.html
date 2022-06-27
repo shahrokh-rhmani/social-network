@@ -21,7 +21,26 @@
         {% endif %}
       </div>
     </form>
+    
+    <div class="content">
+      {% for jweet in profile.user.Jweets.all %}
+        <div class="box">
+          {{jweet.body}}
+          <span class="is-small has-text-grey-light">
+            {{jweet.created_at}}
+          </span>
+        </div>
+        {% endfor %}
+    </div>
+
+
 </div>
+
+
+
+
+
+
 
 <div class="column is-one-third">
 
@@ -66,6 +85,8 @@
             </ul>
         </div>
     </div>
+
+
 
 </div>
 
