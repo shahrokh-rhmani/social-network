@@ -27,7 +27,7 @@ def create_profile(sender, instance, created, **kwargs):
 class Jweet(models.Model):
     user = models.ForeignKey(
         User,
-        related_name ="Jweet", on_delete=models.DO_NOTHING
+        related_name ="Jweets", on_delete=models.DO_NOTHING
     )
     body = models.CharField(max_length=140)
     created_at = models.DateTimeField(auto_now_add=True)
