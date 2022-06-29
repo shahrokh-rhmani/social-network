@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Profile
 
 def dashboard(request):
-    return  render(request, '_base.html')
+    return  render(request, 'jwitter/dashboard.html')
 
 
 def profile_list(request):
@@ -19,7 +19,7 @@ def profile(request, pk):
     if not hasattr(request.user, 'profile'):
         missing_profile = Profile(user=request.user)
         missing_profile.save()
-        
+
     profile = Profile.objects.get(pk=pk)
     if request.method == 'POST':
         present_user_profile = request.user.profile

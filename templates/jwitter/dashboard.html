@@ -1,0 +1,5 @@
+{% for followed in user.profile.follows.all %}
+  {% for jweet in followed.user.Jweets.all  %}
+    <li>{{jweet.user.username}} ({{jweet.created_at}}): {{jweet.body}}</li>
+  {% endfor %}
+{% endfor %}
