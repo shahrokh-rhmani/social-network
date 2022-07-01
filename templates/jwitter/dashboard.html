@@ -1,5 +1,18 @@
-{% for followed in user.profile.follows.all %}
-  {% for jweet in followed.user.Jweets.all  %}
-    <li>{{jweet.user.username}} ({{jweet.created_at}}): {{jweet.body}}</li>
-  {% endfor %}
-{% endfor %}
+{% extends '_base.html' %}
+
+
+{% block content %}
+  <div class="column">
+    {% for followed in user.profile.follows.all %}
+      {% for jweet in followed.user.Jweets.all  %}
+      <div class="box">
+        {{jweet.body}}
+        <span class="is-small has-text-grey-light">
+          ({{jweet.created_at}} by {{jweet.user.username}})
+        </span>
+      </div>
+      {% endfor %}
+    {% endfor %}
+
+  </div>
+{% endblock %}
