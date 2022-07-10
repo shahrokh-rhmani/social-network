@@ -7,4 +7,4 @@ class JweetForm(forms.ModelForm):
 
     class Meta:
         model = Jweet
-         exclude = ("", )
+        exclude = ('user', )
