@@ -1,8 +1,13 @@
 from django.shortcuts import render
+from .forms import JweetForm
 from .models import Profile
 
 def dashboard(request):
-    return  render(request, 'jwitter/dashboard.html')
+    form = JweetForm()
+    context = {
+        'form': form
+    }
+    return  render(request, 'jwitter/dashboard.html', context)
 
 
 def profile_list(request):
