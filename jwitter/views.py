@@ -3,6 +3,12 @@ from .forms import JweetForm
 from .models import Profile
 
 def dashboard(request):
+    if request.method == "POST":
+        form = JweetForm(request.POST)
+        if form.is_valid():
+            jweet = form.save(commit=False)
+            jweet.user = request.user
+            jweet.save()
     form = JweetForm()
     context = {
         'form': form
