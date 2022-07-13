@@ -17,6 +17,12 @@
 
   <!-- Form JweetForm -->
   <div class="column is-one-third">
-    {{form.as_p}}
+    <form class="" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button class="button is-success is-fullwidth is-medium mt-5"
+        type="type">Jweet</button>
+
+    </form>
   </div>
 {% endblock %}
