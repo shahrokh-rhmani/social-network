@@ -1,15 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import JweetForm
 from .models import Profile
 
 def dashboard(request):
+    form = JweetForm(request.POST or None)
     if request.method == "POST":
-        form = JweetForm(request.POST)
         if form.is_valid():
             jweet = form.save(commit=False)
             jweet.user = request.user
             jweet.save()
-    form = JweetForm()
+            return redirect("jwitter:dashboard")
+
     context = {
         'form': form
     }
