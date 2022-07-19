@@ -16,8 +16,29 @@
   </div>
 
 
+  <div class="block">
+      <a href="{% url 'jwitter:profile_list' %} ">
+          <button class="button is-dark is-outlined is-fullwidth">
+              All Profiles
+          </button>
+      </a>
+  </div>
+  <div class="block">
+      <a href="{% url 'jwitter:profile' request.user.profile.id %} ">
+          <button class="button is-success is-light is-outlined is-fullwidth">
+              My Profile
+          </button>
+      </a>
+  </div>
+
+
+
   <!-- Form JweetForm -->
-  <div class="column is-one-third">
+<div class="block">
+  <div class="block">
+    <h2 class="title is-2">Add a Jweet</h2>
+  </div>
+  <div class="block">
     <form class="" method="post">
       {% csrf_token %}
       {{form.as_p}}
@@ -26,4 +47,5 @@
 
     </form>
   </div>
+</div>
 {% endblock %}
