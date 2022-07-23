@@ -15,37 +15,40 @@
     {% endfor %}
   </div>
 
+<div class="column is-one-third">
+    <!-- button  profile_list-->
+    <div class="block">
+        <a href="{% url 'jwitter:profile_list' %} ">
+            <button class="button is-dark is-outlined is-fullwidth">
+                All Profiles
+            </button>
+        </a>
+    </div>
+    <!-- button profile -->
+    <div class="block">
+        <a href="{% url 'jwitter:profile' request.user.profile.id %} ">
+            <button class="button is-success is-light is-outlined is-fullwidth">
+                My Profile
+            </button>
+        </a>
+    </div>
 
+
+
+    <!-- Form JweetForm -->
   <div class="block">
-      <a href="{% url 'jwitter:profile_list' %} ">
-          <button class="button is-dark is-outlined is-fullwidth">
-              All Profiles
-          </button>
-      </a>
-  </div>
-  <div class="block">
-      <a href="{% url 'jwitter:profile' request.user.profile.id %} ">
-          <button class="button is-success is-light is-outlined is-fullwidth">
-              My Profile
-          </button>
-      </a>
-  </div>
+    <div class="block">
+      <h2 class="title is-2">Add a Jweet</h2>
+    </div>
+    <div class="block">
+      <form class="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="button is-success is-fullwidth is-medium mt-5"
+          type="type">Jweet</button>
 
-
-
-  <!-- Form JweetForm -->
-<div class="block">
-  <div class="block">
-    <h2 class="title is-2">Add a Jweet</h2>
-  </div>
-  <div class="block">
-    <form class="" method="post">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button class="button is-success is-fullwidth is-medium mt-5"
-        type="type">Jweet</button>
-
-    </form>
+      </form>
+    </div>
   </div>
 </div>
 {% endblock %}
