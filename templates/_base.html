@@ -6,12 +6,16 @@
     <title>{% block title %}Jwitter{% endblock %}</title>
   </head>
   <body>
-    <section class="hero is-small is-primary mb-4">
-      <div class="hero-body">
-        <h1 class="title is-1">social network</h1>
-        <p class="subtitle is-4">Welcome to Jwitter</p>
-      </div>
-    </section>
+
+<!-- header -->
+<a href="{% url 'jwitter:dashboard' %}">
+  <section class="hero is-small is-primary mb-4">
+    <div class="hero-body">
+      <h1 class="title is-1">social network</h1>
+      <p class="subtitle is-4">Welcome to Jwitter</p>
+    </div>
+  </section>
+</a>
     <div class="container">
       <div class="columns">
         {% block content %}
