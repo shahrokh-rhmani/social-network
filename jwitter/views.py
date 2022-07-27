@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import JweetForm
-from .models import Profile
+from .models import Profile, Jweet
 
 def dashboard(request):
     form = JweetForm(request.POST or None)
@@ -11,6 +11,9 @@ def dashboard(request):
             jweet.save()
             return redirect("jwitter:dashboard")
 
+    followed_jweets = Jweet.objects.filter(
+        user__profile__in=request.user.profile.follows.all()
+    ).order_by("-created_at")
     context = {
         'form': form
     }
