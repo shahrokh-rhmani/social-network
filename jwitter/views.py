@@ -15,7 +15,8 @@ def dashboard(request):
         user__profile__in=request.user.profile.follows.all()
     ).order_by("-created_at")
     context = {
-        'form': form
+        'form': form,
+        'jweets': followed_jweets,
     }
     return  render(request, 'jwitter/dashboard.html', context)
 

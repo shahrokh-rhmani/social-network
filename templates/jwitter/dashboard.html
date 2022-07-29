@@ -3,8 +3,7 @@
 
 {% block content %}
   <div class="column">
-    {% for followed in user.profile.follows.all %}
-      {% for jweet in followed.user.Jweets.all  %}
+    {% for jweet in jweets %}
       <div class="box">
         {{jweet.body}}
         <span class="is-small has-text-grey-light">
@@ -12,7 +11,6 @@
         </span>
       </div>
       {% endfor %}
-    {% endfor %}
   </div>
 
 <div class="column is-one-third">
